@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import CakeList from "./Components/CakeList";
 import Search from "./Components/Search";
+import AddCake from "./Components/AddCake";
 import './App.css';
 
 function App() {
@@ -19,9 +20,17 @@ function App() {
 
   useEffect(getCake,[]);
 
+  function insertCake(title, desc, image) {
+    const item = {title, desc, image };
+    const newState = [...cake];
+    newState.unshift(item);
+    setCake(newState);
+  }
+
   return (
     <div className="App">
       <Search cake ={cake}/>
+      <AddCake insertCake={ insertCake }/>
       <CakeList cake={cake} isLoading={isLoading}/>
     </div>
   );

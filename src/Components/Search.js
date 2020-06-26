@@ -10,11 +10,13 @@ function Search({cake}) {
 
     function handleSearch(e) {
         e.preventDefault();
+
         let filteredArr = cake.filter( (item) => {
             return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
-          })
+          });
+
           setSearchResult(filteredArr.map((cake, index) => (
-            <div  key={index}>
+            <div key={index}>
             <Card>
               <CardBody>
                     <CardTitle>{cake.title}</CardTitle>
@@ -42,7 +44,7 @@ function Search({cake}) {
                 </Form>
 
                 <div className="col-12 col-sm-6 searchResult">
-                {searchTerm ? searchResult : ""}
+                    {searchTerm ? searchResult : ""}
                 </div>
 
             </div>
