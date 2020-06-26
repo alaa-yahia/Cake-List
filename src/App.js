@@ -27,11 +27,18 @@ function App() {
     setCake(newState);
   }
 
+  function updateCakeItem(title, desc, image, index) {
+    const item = {title, desc, image }
+    const newState = [...cake];
+    newState[index] = item;
+    setCake(newState);
+  }
+
   return (
     <div className="App">
       <Search cake ={cake}/>
       <AddCake insertCake={ insertCake }/>
-      <CakeList cake={cake} isLoading={isLoading}/>
+      <CakeList cake={cake} isLoading={isLoading} updateCakeItem={updateCakeItem}/>
     </div>
   );
 }

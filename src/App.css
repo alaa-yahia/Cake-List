@@ -2,6 +2,15 @@
   text-align: center;
 }
 
-.searchResult{
+/* .searchResult{
   background-color: purple;
+}
+ */
+.hidden{
+  display: none;
+  
+}
+
+.unhidden{
+  display: inline-block;
 }

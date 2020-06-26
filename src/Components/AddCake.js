@@ -16,8 +16,8 @@ function AddCake({ insertCake }) {
                 </Col>
                 <Col xs={12}>
                     <input onChange={(e) => {setTitle(e.target.value)} } type="text" placeholder="Title" value={title}/>
-                    <input onChange={(e) => {setDesc(e.target.value)}} type="text" placeholder="Title" value={desc}/>
-                    <input onChange={(e) => {setImgUrl(e.target.value)}} type="text" placeholder="Title" value={imgUrl}/>
+                    <input onChange={(e) => {setDesc(e.target.value)}} type="text" placeholder="Description" value={desc}/>
+                    <input onChange={(e) => {setImgUrl(e.target.value)}} type="text" placeholder="Image Url" value={imgUrl}/>
                     <input type="submit" value="ADD" onClick={ () => insertCake(title, desc, imgUrl)} />
                 </Col>
             </FormGroup>
