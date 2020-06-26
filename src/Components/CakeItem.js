@@ -7,13 +7,13 @@ import {
 
   function CakeItem({ item, updateCakeItem, index }) {
     const [editBtnClicked, setEditBtnClicked] = useState(false);
-    const [title, setTitle] = useState("");
-    const [desc, setDesc] = useState("");
-    const [imgUrl, setImgUrl] = useState("");
+    const [title, setTitle] = useState(item.title);
+    const [desc, setDesc] = useState(item.desc);
+    const [imgUrl, setImgUrl] = useState(item.image);
 
     function handleClick() {
         setEditBtnClicked(!editBtnClicked);
-        if(title !== item.title && title !=='') {
+        if(title !== item.title || desc !== item.desc || imgUrl !== item.image) {
             updateCakeItem(title, desc, imgUrl, index);
         }
     }
@@ -34,15 +34,16 @@ import {
         
         <Card className={editBtnClicked ? "unhidden" : "hidden"}>
         <CardBody>
-            <CardTitle ><input onChange={(e) => {setTitle(e.target.value)}}  type="text" placeholder="Insert Title" /></CardTitle>
+            <CardTitle ><input onChange={(e) => {setTitle(e.target.value)}}  type="text" placeholder="Insert Title" value={title} /></CardTitle>
         </CardBody>
         <CardBody>
-            <CardText><input onChange={(e) => {setImgUrl(e.target.value)}} type="text" placeholder="Insert Image Url" /></CardText>
+            <CardText><input onChange={(e) => {setImgUrl(e.target.value)}} type="text" placeholder="Insert Image Url" value={imgUrl} /></CardText>
         </CardBody>
         <CardBody>
-            <CardText><input onChange={(e) => {setDesc(e.target.value)}} type="text" placeholder="Insert Description" /></CardText>
+            <CardText><input onChange={(e) => {setDesc(e.target.value)}} type="text" placeholder="Insert Description" value={desc}/></CardText>
+            <Button onClick={handleClick}>Done</Button>
         </CardBody>
-        <Button onClick={handleClick}>Done</Button>
+
         </Card>
 
     </div>
