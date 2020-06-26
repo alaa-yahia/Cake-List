@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import CakeList from "./Components/CakeList";
+import Search from "./Components/Search";
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      <Search cake ={cake}/>
       <CakeList cake={cake} isLoading={isLoading}/>
     </div>
   );
